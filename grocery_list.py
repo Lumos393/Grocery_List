@@ -6,7 +6,6 @@ import requests
 import re
 import tkinter as tk
 from tkinter import ttk, simpledialog, Menu
-from tkinter import messagebox as mbox
 from tkinter import *
 from html.parser import HTMLParser
 from bs4 import BeautifulSoup
@@ -24,8 +23,6 @@ def printtext():
     string = e.get()
     text.insert(INSERT, string)
 
-print("Thank you for using Sam's Grocery Thingy! Please begin by entering the URL you would like to search when prompted."+'\n')
-
 URL_DATA = []
 
 #setting up user input box
@@ -36,23 +33,26 @@ text = Text(root)
 e = Entry(root)
 e.pack()
 e.focus_set()
-b = Button(root,text='okay',command=printtext)
+b = Button(root, text='okay', command=printtext)
 text.pack()
 b.pack(side='bottom')
 
 #search prompt (ex. academicaffairs.kennesaw.edu)
-URL_INP = simpledialog.askstring(title='URL', prompt='What URL would you like to search?')
+SRC_INP = simpledialog.askstring(title="Prompt", text="\nThank you for using Sam's Grocery Thingy!\n", prompt="Would you like to search items individually or from your Alexa list?")
 
 #search logic
-if URL_INP == None:
-    sys.exit("Please come again!")
-if URL_INP == '' or URL_INP.find('.') == -1:
-    sys.exit("This is not a valid URL. Please restart the program and try something else.")
-else:
-    print("Searching Google for",URL_INP,"and indexing URLs...")
+x = 0
+while x == 0:
+    if (SRC_INP == (None or "")) (or SRC_INP.find(".") ==):
+        print("No valid entry was detected, please try again.")
+        SRC_INP
+    elif SRC_INP == '' or SRC_INP.find('.') == -1:
+        sys.exit("This is not a valid URL. Please restart the program and try something else.")
+    else:
+        print("Searching Google for",SRC_INP,"and indexing URLs...")
 
 #appending URLs to system
-for url in search(('site:'+URL_INP), tld='com', lang='en'):
+for url in search(('site:'+SRC_INP), tld='com', lang='en'):
     URL_DATA.append(url)
 
 if ('urllib.error.HTTPError: HTTP Error 429: Too Many Requests'):
