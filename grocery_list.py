@@ -43,13 +43,13 @@ SRC_INP = simpledialog.askstring(title="Prompt", text="\nThank you for using Sam
 #search logic
 x = 0
 while x == 0:
-    if (SRC_INP == (None or "")) (or SRC_INP.find(".") ==):
+    if SRC_INP == None:
         print("No valid entry was detected, please try again.")
         SRC_INP
     elif SRC_INP == '' or SRC_INP.find('.') == -1:
         sys.exit("This is not a valid URL. Please restart the program and try something else.")
     else:
-        print("Searching Google for",SRC_INP,"and indexing URLs...")
+        print("Searching stores for your items...")
 
 #appending URLs to system
 for url in search(('site:'+SRC_INP), tld='com', lang='en'):
