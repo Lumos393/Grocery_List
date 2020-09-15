@@ -1,26 +1,49 @@
 import tkinter as tk
 
 window = tk.Tk()
-choice_a = tk.Frame()
-choice_i = tk.Frame()
+choice_a = tk.Frame(
+    bg="black",
+    relief=tk.GROOVE
+)
+choice_i = tk.Frame(
+    bg="black",
+    relief=tk.GROOVE
+)
 
 button_a = tk.Button(
     text="Alexa",
-    width=10,
+    width=20,
     height=5,
+    bg="darkgray",
+    fg="white",
     master=choice_a
 )
 button_a.pack()
 
 button_i = tk.Button(
     text="Individual",
-    width=10,
+    width=20,
     height=5,
+    bg="darkgray",
+    fg="white",
     master=choice_i
 )
 button_i.pack()
 
-choice_a.pack()
-choice_i.pack()
+title = tk.Label(
+    text="Thank you for using Sam's Grocery Thingy! Please select if you would like to enter items individually or pull from an Alexa list:"
+)
+
+choice_a.pack(
+    fill=tk.BOTH,
+    side=tk.LEFT,
+    expand=True
+)
+choice_i.pack(
+    fill=tk.BOTH,
+    side=tk.RIGHT,
+    expand=True
+)
 
 window.mainloop()
+
