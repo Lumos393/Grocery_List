@@ -11,7 +11,7 @@ from html.parser import HTMLParser
 from bs4 import BeautifulSoup
 import ctypes
 import getpass
-from openpyxl import Workbook, load_workbook
+from openpyxl import Workbook
 from openpyxl.drawing.image import Image
 from openpyxl.utils import get_column_letter
 from openpyxl.utils.dataframe import dataframe_to_rows

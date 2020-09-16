@@ -1,4 +1,8 @@
 import tkinter as tk
+from tkinter import *
+from bs4 import BeautifulSoup
+from googlesearch import search
+import requests
 
 window = tk.Tk()
 choice_a = tk.Frame(
@@ -46,4 +50,7 @@ choice_i.pack(
 )
 
 window.mainloop()
+
+r = requests.get('https://www.walmart.com')
+#https://www.walmart.com/search/?query=pumpkin%20pie%20filling
 
